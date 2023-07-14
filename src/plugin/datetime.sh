@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #
 # shellcheck disable=SC2005
+plugin_datetime_enabled=$(get_tmux_option "@theme_plugin_datetime_enabled" "true")
 plugin_datetime_icon=$(get_tmux_option "@theme_plugin_datetime_icon" "")
 plugin_datetime_accent_color=$(get_tmux_option "@theme_plugin_datetime_accent_color" "blue7")
 plugin_datetime_accent_color_icon=$(get_tmux_option "@theme_plugin_datetime_accent_color_icon" "blue0")
@@ -9,7 +10,9 @@ plugin_datetime_accent_color_icon=$(get_tmux_option "@theme_plugin_datetime_acce
 plugin_datetime_format=$(get_tmux_option "@theme_plugin_datetime_format" "%c")
 
 function load_plugin() {
-  echo "${plugin_datetime_format}"
-} 
+	if [[ $plugin_datetime_enabled -eq "true" ]]; then
+		echo "${plugin_datetime_format}"
+	fi
+}
 
-export plugin_datetime_icon plugin_datetime_accent_color plugin_datetime_accent_color_icon
+export plugin_datetime_enabled plugin_datetime_icon plugin_datetime_accent_color plugin_datetime_accent_color_icon
