@@ -10,7 +10,7 @@ plugin_datetime_accent_color_icon=$(get_tmux_option "@theme_plugin_datetime_acce
 plugin_datetime_format=$(get_tmux_option "@theme_plugin_datetime_format" "%c")
 
 function load_plugin() {
-	if [[ $plugin_datetime_enabled -eq "true" ]]; then
+	if [[ "$plugin_datetime_enabled" == "true" ]]; then
 		echo "${plugin_datetime_format}"
 	fi
 }

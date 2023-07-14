@@ -10,9 +10,9 @@ plugin_weather_accent_color_icon=$(get_tmux_option "@theme_plugin_weather_accent
 plugin_weather_format=$(get_tmux_option "@theme_plugin_weather_format" "%c")
 
 function load_plugin() {
-  if [[ $plugin_weather_enabled -eq "true "]]; then
-    echo "${plugin_weather_format}"
-  fi
+	if [[ "$plugin_weather_enabled" == "true" ]]; then
+		echo "${plugin_weather_format}"
+	fi
 }
 
 export plugin_weather_enabled plugin_weather_icon plugin_weather_accent_color plugin_weather_accent_color_icon
